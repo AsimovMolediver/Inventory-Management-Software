@@ -11,7 +11,7 @@ This is a simple product management system developed in Python using the pandas 
 
 1. Clone the repository to your local environment:
 
-```bash
+bash
 git clone https://github.com/your-username/product-management-system.git
 
 2. Make sure you have Pandas installed:
