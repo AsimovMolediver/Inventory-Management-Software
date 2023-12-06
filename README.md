@@ -1,4 +1,4 @@
-# Inventory Management System
+## Inventory Management System
 
 This is a simple product management system developed in Python using the pandas library. It allows for the addition, updating, and viewing of products in a DataFrame.
 
