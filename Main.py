@@ -1,27 +1,16 @@
-import pandas as pd
+import Stock_Level_Tracking
 import Button1
 import Button2
 import Button3
-
-data = {'Produto' : ['Tira', 'Forma', 'Borracha'], 
-        'Tipo': ['Lisa', 'Metálica', '90/10'],
-        'Modelo': ['Aviador','Regular', 'Comum'],
-        'Cor': ['Branca', '--',  'Azul/Vermelho'],
-        'Tamanho': ['22', '22', '90cm'],
-        'Quantidade': [10, 1, 2]
-}
-
-fornecedores = {'Produto' : ['Tira', 'dhgsghdgsdg', '5760600']}
-
-p_df = pd.DataFrame(data)
-s_df = pd.DataFrame(fornecedores)
-
-#Button3.listar_s(s_df, 'Tira')
-
-#p_df.to_csv('Products.csv', index=False)
-#s_df.to_csv('Suppliers.csv', index=False)
+import Button4
+import Button5
+import Button6
+import Button7
 
 while True:
+
+    Stock_Level_Tracking.stock_lvl()
+
     print("""
     Welcome!
 
@@ -30,6 +19,10 @@ while True:
     1 - Add
     2 - Update Item
     3 - Supplier Management
+    4 - Inventory Valuation
+    5 - Purchase order
+    6 - Barcode reader
+    7 - Sales and History
     0 - exit
     """)
 
@@ -46,6 +39,21 @@ while True:
     elif action == '3':
 
         Button3.opt3()
+
+    elif action == '4':
+
+        Button4.opt4()
+
+    elif action == '5':
+
+        Button5.opt5()
+    
+    elif action == '6':
+
+        Button6.opt6()
+    
+    elif action == '7':
+        Button7.opt7()
 
     elif action == '0':
         break

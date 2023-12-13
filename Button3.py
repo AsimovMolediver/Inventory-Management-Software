@@ -5,8 +5,8 @@ def update_item(s_df, index, column, new_value):
   s_df.at[index, column] = new_value
   return s_df
 
-def add_s(s_df, supplier, product, contact, email, CEP):
-        new_roll = pd.DataFrame({'Supplier':[supplier], 'Produto': [product], 'Contato': [contact], 'E-Mail': [email], 'CEP': [CEP]})
+def add_s(s_df, supplier, product, contact, email, CEP, CNPJ):
+        new_roll = pd.DataFrame({'Supplier':[supplier], 'Produto': [product], 'Contato': [contact], 'E-Mail': [email], 'CEP': [CEP], 'CNPJ': [CNPJ]})
         return pd.concat([s_df, new_roll], ignore_index=False)
 
 def listar_s(s_df, product):
@@ -48,8 +48,9 @@ def opt3():
         contact =input('Contact: ')
         email = input('E-mail: ')
         CEP = input('CEP: ')
+        CNPJ = input('CNPJ: ')
 
-        s_df = add_s(s_df, supplier, product, contact, email, CEP)
+        s_df = add_s(s_df, supplier, product, contact, email, CEP, CNPJ)
 
         s_df.to_csv("Suppliers.csv", index = False)
 
@@ -77,7 +78,7 @@ def opt3():
                 new_value = input(f'Enter the new value for {column}: ')
                 s_df = update_item(s_df, index, column, new_value)
                 s_df.to_csv('Suppliers.csv', index=False)
-                print("Item updated successfully!")
+                print("Information updated successfully!")
             else:
                 print("Invalid index. Please enter a valid index.")
         except ValueError:

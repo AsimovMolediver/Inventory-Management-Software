@@ -14,9 +14,11 @@ This is a simple product management system developed in Python using the pandas 
 bash
 git clone https://github.com/your-username/product-management-system.git
 
-2. Make sure you have Pandas installed:
+2. Make sure you have this APIs installed:
 
 pip install pandas (in PowerShell)
+pip install opencv-python pyzbar
+pip install reportLab
 
 ## Usage
 
@@ -35,6 +37,10 @@ Choose the desired option from the menu:
 0 - Exit: Exits the program.
 
 Follow the on-screen instructions to input or update information.
+
+## Particularities
+
+This program was developed with the purpose of monitoring a sandals store. Therefore, the cataloged items that can be added are already present in the file, however, variations of them can be added in order to improve the personalization of the object.
 
 ## Example Data
 

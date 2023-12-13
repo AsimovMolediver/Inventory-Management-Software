@@ -1,2 +1,3 @@
-Supplier,Produto,Contato,E-Mail,CEP
-,,,,,
+Supplier,Produto,Contato,E-Mail,CEP,CNPJ
+Tiras&Cia,Tiras,345345345,tirasecia@bol.com,570000,325432432
+BorrachasS,Borrachas,312321312,borrachass@bol.com,342343,354656
