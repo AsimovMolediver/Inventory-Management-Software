@@ -1,10 +1,11 @@
 import pandas as pd
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
-from datetime import date
+from datetime import date, datetime
 
+data_hora_atual = datetime.now().strftime('%Y%m%d_%H%M%S')
 
 # Função para carregar fornecedores do CSV
 def carregar_fornecedores_csv():
@@ -27,8 +28,24 @@ def selecionar_fornecedor(s_df):
         print("Opção inválida. Certifique-se de selecionar um número válido.")
         return None
 
-# Função para criar a ordem de compra
-def opt5(output_pdf, dados_fornecedor):
+def opt5():
+
+    s_df = carregar_fornecedores_csv()
+
+    # Verificar se os fornecedores foram carregados com sucesso
+    if s_df is not None:
+        # Chamar a função para selecionar um fornecedor
+        dados_fornecedor = selecionar_fornecedor(s_df)
+
+        if dados_fornecedor is not None:
+            # Chamar a função para criar a ordem de compra
+            output_pdf = f'OC_{data_hora_atual}.pdf'
+            criar_template_ordem_compra(output_pdf, dados_fornecedor)
+    else:
+        print("Erro ao carregar dados dos fornecedores. Certifique-se de que o arquivo CSV está correto.")
+
+
+def criar_template_ordem_compra(output_pdf, dados_fornecedor):
     # Configurar o PDF usando reportlab
     pdf = SimpleDocTemplate(output_pdf, pagesize=letter, rightMargin=20, leftMargin=20, topMargin=30, bottomMargin=20)
     styles = getSampleStyleSheet()
@@ -95,17 +112,3 @@ def opt5(output_pdf, dados_fornecedor):
 
     print(f"Template de ordem de compra salvo como {output_pdf}")
 
-    # Chamar a função para carregar fornecedores
-    s_df = carregar_fornecedores_csv()
-
-    # Verificar se os fornecedores foram carregados com sucesso
-    if s_df is not None:
-        # Chamar a função para selecionar um fornecedor
-        dados_fornecedor = selecionar_fornecedor(s_df)
-
-        if dados_fornecedor is not None:
-            # Chamar a função para criar a ordem de compra
-            output_pdf = 'Ordem_de_Compra.pdf'
-            opt5(output_pdf, dados_fornecedor)
-    else:
-        print("Erro ao carregar dados dos fornecedores. Certifique-se de que o arquivo CSV está correto.")

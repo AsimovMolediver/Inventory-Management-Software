@@ -31,7 +31,7 @@ def opt1():
     print_df(p_df)
     print("\n")
 
-    print("Please enter in this sequence atributes product:")
+    print("Please enter in this sequence atributes product (with no accent):")
 
     product = input('Product: ')
     type = input('Type: ')

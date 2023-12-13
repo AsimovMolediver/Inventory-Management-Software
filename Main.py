@@ -1,3 +1,4 @@
+import pandas as pd
 import Stock_Level_Tracking
 import Button1
 import Button2
@@ -53,6 +54,7 @@ while True:
         Button6.opt6()
     
     elif action == '7':
+
         Button7.opt7()
 
     elif action == '0':

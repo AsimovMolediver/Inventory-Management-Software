@@ -14,14 +14,24 @@ t_df = pd.read_csv(nome)
 
 def opt4():
 
-    c_df['Valores'] = p_df['Quantidade'] * p_df['Preço']
+    while True:
 
-    total_value = c_df['Valores'].sum()
+        nome_produto = input("\nShow? (Y or N): ")
+            
+        if nome_produto == 'N':
+            break
 
-    t_df = pd.DataFrame({'Total': [total_value]})
+        else:
 
-    t_df.to_csv('Total.csv', index=False)
+            c_df['Valores'] = p_df['Quantidade'] * p_df['Preço']
 
-    print('\n')
-    print(f'O Valor total em inventário é: {total_value}')
-    print('\n')
+            total_value = c_df['Valores'].sum()
+
+            t_df = pd.DataFrame({'Total': [total_value]})
+
+            t_df.to_csv('Total.csv', index=False)
+
+            print('\n')
+            print(f'The total value in inventory is: {total_value}')
+            print('\n')
+
