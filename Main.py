@@ -1,4 +1,3 @@
-import pandas as pd
 import Stock_Level_Tracking
 import Button1
 import Button2
@@ -7,6 +6,7 @@ import Button4
 import Button5
 import Button6
 import Button7
+import Logger
 
 while True:
 
@@ -24,6 +24,7 @@ while True:
     5 - Purchase order
     6 - Barcode reader
     7 - Sales and History
+    8 - Inventory Reports
     0 - exit
     """)
 
@@ -56,6 +57,10 @@ while True:
     elif action == '7':
 
         Button7.opt7()
+    
+    elif action == '8':
 
+        Logger.imprimir_csv()
+        
     elif action == '0':
         break
