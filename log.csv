@@ -1,0 +1,8 @@
+DataHora,Funcao,LinhaModificada
+2023-12-13 21:34:06,add_item_and_update_s,11
+2023-12-13 21:57:10,update_item,"Index: 3, Column: Supplier, Old Value: dsad, New Value: aaaaa"
+2023-12-13 21:57:10,opt3_update,"Index: 3, Column: Supplier, New Value: aaaaa"
+2023-12-13 21:57:49,opt3_remove,"Index: 3, Supplier: aaaaa"
+2023-12-13 22:02:00,criar_template_ordem_compra,"Output PDF: OC_20231213_220148.pdf, Fornecedor: EXPOsiTORIUM, Valor Total: 100.0"
+2023-12-13 22:09:30,INSERT,0
+2023-12-13 22:38:56,VENDA,"{'action': 'SALE', 'index': 10, 'datetime': '2023-12-13 22:38:56', 'Produto': 'Sandalia', 'Tipo': 'Texturizada', 'Modelo': 'Comum', 'Cor': 'Branca', 'Tamanho': '23/24', 'Quantidade': 4, 'Preço': 15.0, 'Qtd.Ideal': 15.0, 'Qtd.Min': 5.0, 'DataHoraModificacao': '2023-12-13 22:38:56'}"

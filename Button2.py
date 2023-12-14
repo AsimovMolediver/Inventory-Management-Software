@@ -1,8 +1,14 @@
 import pandas as pd
+from Logger import registrar_log
 
 def update_item(p_df, index, column, new_value):
 
+  old_value = p_df.at[index, column]
+
   p_df.at[index, column] = new_value
+
+  registrar_log('update_item', f"Index: {index}, Column: {column}, Old Value: {old_value}, New Value: {new_value}")
+
   return p_df
 
 def opt2():
@@ -56,6 +62,8 @@ def opt2():
             index = int(input('\nEnter the index of the item to delete: '))
             if 0 <= index < len(p_df):
 
+                item_info = p_df.loc[index].to_dict()
+                registrar_log('remove_item', f"Index: {index}, Item Info: {item_info}")
                 p_df = p_df.drop(index, axis = 0)
                 p_df.to_csv('Products.csv', index=False)
                 print('\n')

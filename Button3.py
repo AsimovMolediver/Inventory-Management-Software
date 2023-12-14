@@ -1,12 +1,15 @@
 import pandas as pd
+from Logger import registrar_log
 
 def update_item(s_df, index, column, new_value):
-
+  old_value = s_df.at[index, column]
   s_df.at[index, column] = new_value
+  registrar_log('update_item', f"Index: {index}, Column: {column}, Old Value: {old_value}, New Value: {new_value}")
   return s_df
 
 def add_s(s_df, supplier, product, contact, email, CEP, CNPJ):
         new_roll = pd.DataFrame({'Supplier':[supplier], 'Produto': [product], 'Contato': [contact], 'E-Mail': [email], 'CEP': [CEP], 'CNPJ': [CNPJ]})
+        registrar_log('add_s', f"Supplier: {supplier}, Product: {product}")
         return pd.concat([s_df, new_roll], ignore_index=False)
 
 def listar_s(s_df, product):
@@ -78,6 +81,7 @@ def opt3():
                 new_value = input(f'Enter the new value for {column}: ')
                 s_df = update_item(s_df, index, column, new_value)
                 s_df.to_csv('Suppliers.csv', index=False)
+                registrar_log('opt3_update', f"Index: {index}, Column: {column}, New Value: {new_value}")
                 print("Information updated successfully!")
             else:
                 print("Invalid index. Please enter a valid index.")
@@ -96,7 +100,7 @@ def opt3():
         try:
             index = int(input('\nEnter the index of the supplier to delete: '))
             if 0 <= index < len(s_df):
-
+                registrar_log('opt3_remove', f"Index: {index}, Supplier: {s_df.at[index, 'Supplier']}")
                 s_df = s_df.drop(index, axis = 0)
                 s_df.to_csv('Suppliers.csv', index=False)
                 print('\n')

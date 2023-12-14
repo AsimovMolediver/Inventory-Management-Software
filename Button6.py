@@ -1,6 +1,7 @@
 import pandas as pd
 import cv2
 from pyzbar.pyzbar import decode
+from Logger import registrar_log
 
 p_df = pd.read_csv('Products.csv')
 p_df = pd.DataFrame(p_df)
@@ -50,11 +51,15 @@ def opt6():
                 soma = int(new_df.at[0, 'Quantidade'])
                 p_df.at[existing_index[0], 'Quantidade'] += soma
                 p_df.to_csv('Products.csv', index=False)
+                linha_modificada = existing_index[0]
+                registrar_log('INSERT', linha_modificada)
                 break
             else:
                 print("NEW ITEM!!")
                 p_df = pd.concat([p_df, new_df], ignore_index=True)
                 p_df.to_csv('Products.csv', index=False)
+                linha_modificada = len(p_df) - 1
+                registrar_log('INSERT', linha_modificada)
                 break
 
         if cv2.waitKey(1) & 0xFF == ord('q'):

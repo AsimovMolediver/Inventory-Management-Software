@@ -1,5 +1,6 @@
 import pandas as pd
 import Button3
+from Logger import registrar_log
 
 def print_df(df):
     print(df)
@@ -12,7 +13,11 @@ def add_item(df, product, type, model, color, size, quantity, price, ideal, min)
 
 def add_item_and_update_s(p_df, product, type, model, color, size, quantity, price, ideal, min):
 
+    last_index = p_df.index[-1] if not p_df.empty else 0
+
     p_df = add_item(p_df, product, type, model, color, size, quantity, price, ideal, min)
+
+    registrar_log('add_item_and_update_s', last_index + 1)
 
     return p_df
 

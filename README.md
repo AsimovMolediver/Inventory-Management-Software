@@ -17,7 +17,9 @@ Barcode Scanning: Integration of barcode scanning for inventory management;
 
 Inventory Valuation: Calculating the total value of the inventory on hand;
 
-Sales and Purchase History: Tracking and analyzing sales and purchase data.
+Sales and Purchase History: Tracking and analyzing sales and purchase data;
+
+Inventory Reports: Generating detailed reports on inventory status and movements.
 
 ## Requirements
 
