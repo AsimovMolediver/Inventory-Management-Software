@@ -2,6 +2,8 @@
 
 This is a simple product management system developed in Python using the pandas library. It allows for the addition, updating, and viewing of products in a DataFrame.
 
+You can download the files separately or download the .rar file, it has all the same files inside.
+
 ## Functions Implemented
 Product Catalog Management: Adding, updating, and categorizing inventory items;
 
