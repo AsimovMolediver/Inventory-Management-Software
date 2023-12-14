@@ -1,19 +1,16 @@
 import pandas as pd
+from Logger import registrar_log  # Certifique-se de importar a função registrar_log
 
 nome = 'Products.csv'
-
 p_df = pd.read_csv(nome)
 
 nome = 'Calculo.csv'
-
 c_df = pd.read_csv(nome)
 
 nome = 'Total.csv'
-
 t_df = pd.read_csv(nome)
 
 def opt4():
-
     while True:
 
         nome_produto = input("\nShow? (Y or N): ")
@@ -22,16 +19,23 @@ def opt4():
             break
 
         else:
+            try:
+                # Assume que o usuário insere um índice válido
+                index = int(input('\nEnter a number (just for register):'))
 
-            c_df['Valores'] = p_df['Quantidade'] * p_df['Preço']
+                # Calcula os valores
+                c_df['Valores'] = p_df['Quantidade'] * p_df['Preço']
+                total_value = c_df['Valores'].sum()
 
-            total_value = c_df['Valores'].sum()
+                # Registra a ação no log
+                registrar_log('opt4', f"Index: {index}, Total Value: {total_value}")
 
-            t_df = pd.DataFrame({'Total': [total_value]})
+                # Atualiza o DataFrame de Total
+                t_df = pd.DataFrame({'Total': [total_value]})
+                t_df.to_csv('Total.csv', index=False)
 
-            t_df.to_csv('Total.csv', index=False)
-
-            print('\n')
-            print(f'The total value in inventory is: {total_value}')
-            print('\n')
-
+                print('\n')
+                print(f'The total value in inventory is: {total_value}')
+                print('\n')
+            except ValueError:
+                print("Invalid input. Please enter a valid index.")

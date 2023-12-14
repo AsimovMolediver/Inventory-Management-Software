@@ -1,5 +1,6 @@
 import pandas as pd 
 from datetime import datetime
+from Logger import registrar_log7
 
 def update_item(p_df, index, column, new_value):
     new_value = int(new_value)
@@ -51,8 +52,9 @@ Sales and History
                 modified_row['DataHoraModificacao'] = current_datetime
                 h_df = pd.DataFrame([modified_row])
                 h_df.to_csv('History.csv', mode='a', header=not history_df_exists(), index=False)
-                # Atualizar o arquivo original
                 p_df.to_csv('Products.csv', index=False)
+                log_info = {'action': 'SALE', 'index': index, 'datetime': current_datetime, **modified_row.to_dict()}
+                registrar_log7(**log_info)
                 print("Sale registered successfully!!")
             else:
                 print("Invalid index. Please enter a valid index.")

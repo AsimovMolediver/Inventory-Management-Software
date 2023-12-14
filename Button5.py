@@ -4,6 +4,8 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
 from datetime import date, datetime
+from Logger import registrar_log
+
 
 data_hora_atual = datetime.now().strftime('%Y%m%d_%H%M%S')
 
@@ -84,6 +86,7 @@ def criar_template_ordem_compra(output_pdf, dados_fornecedor):
 
         subtotal = quantidade * preco_unitario
         valor_total += subtotal
+        registrar_log('criar_template_ordem_compra', f"Output PDF: {output_pdf}, Fornecedor: {dados_fornecedor['Supplier']}, Valor Total: {valor_total}")
         dados_tabela.append([nome_produto, tipo, quantidade, f'R${preco_unitario:.2f}', f'R${subtotal:.2f}'])
 
     tabela = Table(dados_tabela, style=[
@@ -107,7 +110,8 @@ def criar_template_ordem_compra(output_pdf, dados_fornecedor):
     data_atual = date.today().strftime('%d/%m/%Y')
     elementos.append(Paragraph(f"<b>Data de Emissão:</b> {data_atual}", styles['BodyText']))
 
-    # Construir o PDF
+    
+
     pdf.build(elementos)
 
     print(f"Template de ordem de compra salvo como {output_pdf}")
