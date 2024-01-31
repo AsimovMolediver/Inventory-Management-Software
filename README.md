@@ -42,6 +42,8 @@ Inventory Reports: Generating detailed reports on inventory status and movements
 
 1. Run the 'main.py' script.
 
+!Delete the _pycache_ before the usage.
+
 Choose the desired option from the menu:
 
 1 - Add
