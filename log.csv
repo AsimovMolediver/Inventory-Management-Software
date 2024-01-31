@@ -7,3 +7,4 @@ DataHora,Funcao,LinhaModificada
 2023-12-13 22:09:30,INSERT,0
 2023-12-13 22:38:56,VENDA,"{'action': 'SALE', 'index': 10, 'datetime': '2023-12-13 22:38:56', 'Produto': 'Sandalia', 'Tipo': 'Texturizada', 'Modelo': 'Comum', 'Cor': 'Branca', 'Tamanho': '23/24', 'Quantidade': 4, 'Preço': 15.0, 'Qtd.Ideal': 15.0, 'Qtd.Min': 5.0, 'DataHoraModificacao': '2023-12-13 22:38:56'}"
 2023-12-13 23:10:42,add_item_and_update_s,11
+2024-01-28 19:33:57,criar_template_ordem_compra,"Output PDF: OC_20240128_193339.pdf, Fornecedor: Tiras&Cia, Valor Total: 5.0"
